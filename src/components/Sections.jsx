@@ -65,7 +65,7 @@ function Sections() {
 
 
   return (
-    <div className='w-[100vw] p-10 h-auto '>
+    <div className='w-[100vw] min-h-[100vh] lg:pt-10'>
 
         <div id='menu-options' className='flex justify-around items-center text-white font-unlock text-[16px] lg:text-4xl'>
             <h1 ref={option1Ref} onClick={showOption1} className='cursor-pointer'>TECH STACK</h1>

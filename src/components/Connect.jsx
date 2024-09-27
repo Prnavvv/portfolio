@@ -3,6 +3,9 @@ import { FaLinkedin } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
 import emailjs from '@emailjs/browser';
+import { toast, ToastContainer } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
+
 
 function Connect() {
   const [name, setName] = useState("");
@@ -14,7 +17,12 @@ function Connect() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    console.log(name, email, message);
+    if(!(name || email || message)){
+      toast.error("Fill all fields",{
+        position: "top-right"
+      })
+    }
+    
     const formData = {
       to_name: name,
       from_email: email,
@@ -26,10 +34,14 @@ function Connect() {
       )
       .then(
         () => {
-          console.log('SUCCESS!');
+          toast.success("Message Sent Successfully !", {
+            position: "top-right"
+          });
         },
         (error) => {
-          console.log('FAILED...', error.text);
+          toast.error("Something went worng!",{
+            position: "top-right"
+          })
         },
       );
 
@@ -55,6 +67,7 @@ function Connect() {
             onChange={(e) => {
               setName(e.target.value);
             }}
+            required
           />
           <input
             type="email"
@@ -64,6 +77,7 @@ function Connect() {
             onChange={(e) => {
               setEmail(e.target.value);
             }}
+            required
           />
           <textarea
             className="bg-transparent border-t-4 border-r-4 rounded-lg border-2 p-2 w-60 lg:w-80 h-32 mb-5 outline-none caret-white"
@@ -72,6 +86,7 @@ function Connect() {
             onChange={(e) => {
               setMessage(e.target.value);
             }}
+            required
           />
 
           <input
@@ -142,6 +157,7 @@ function Connect() {
           </div>
         </div>
       </div> */}
+      <ToastContainer />
     </div>
   );
 }

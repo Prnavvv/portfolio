@@ -14,7 +14,7 @@ function LandingPage() {
 
 
   return (
-    <div className='bg-background-img bg-cover bg-center  h-screen w-[100vw]'>
+    <div className='bg-background-img bg-cover bg-center  h-screen w-[100vw] overflow-hidden'>
 
         <div className='h-full w-[100vw] flex items-center justify-center'>
         <div className='border-2 min-h-[40vh] w-[90vw] lg:w-[70vw] lg:min-h-[75vh] bg-black rounded-xl shadow-top-right-small lg:shadow-top-right  p-5 lg:p-10'>
